@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  victoria_metrics:
+    image: victoriametrics/victoria-metrics:v1.76.1
+    networks:
+      - default
+    ports:
+      - "8428:8428"
+
+  grafana:
+    image: grafana/grafana:8.4.5
+    user: '472'
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_USER=admin
+    volumes:
+      - ./grafana/lib:/var/lib/grafana
+    depends_on:
+      - victoria_metrics
+
+networks:
+  default:
+    driver: bridge
