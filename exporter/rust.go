@@ -10,7 +10,7 @@ func (e *Exporter) connectToRust() (*websocket.Conn, error) {
 }
 
 func (e *Exporter) doRustCmd(cmd string) (string, error) {
-	log.Debugf("c.Execute() - running command: %s %s", cmd)
+	log.Debugf("c.Execute() - running command: %s", cmd)
 	res, err := e.conn.Execute(cmd)
 	if err != nil {
 		log.Debugf("c.Execute() - res: %s, err: %s", res, err)
