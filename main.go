@@ -25,10 +25,10 @@ func getEnv(key string, defaultVal string) string {
 
 func main() {
 	var (
-		rustAddr      = flag.String("rust.addr", getEnv("RUST_SERVER", ""), "Address of the Rust server to scrape")
-		rustPwd       = flag.String("rcon.password", getEnv("RUST_RCON_PASSWORD", ""), "Password of the Rust server rcon")
-		listenAddress = flag.String("web.listen-address", getEnv("FACEPUNCH_RUST_EXPORTER_WEB_LISTEN_ADDRESS", ":9121"), "Address to listen on for web interface and telemetry.")
-		metricPath    = flag.String("web.telemetry-path", getEnv("FACEPUNCH_RUST_EXPORTER_WEB_TELEMETRY_PATH", "/metrics"), "Path under which to expose metrics.")
+		rustAddr      = flag.String("rust.addr", getEnv("RUST_ADDR", ""), "Address of the Rust server to scrape")
+		rustPwd       = flag.String("rcon.password", getEnv("RCON_PASSWORD", ""), "Password of the Rust server rcon")
+		listenAddress = flag.String("web.listen-address", getEnv("EXPORTER_WEB_LISTEN_ADDRESS", ":1337"), "Address to listen on for web interface and telemetry.")
+		metricPath    = flag.String("web.telemetry-path", getEnv("EXPORTER_WEB_TELEMETRY_PATH", "/metrics"), "Path under which to expose metrics.")
 		namespace     = "facepunch_rust"
 	)
 
