@@ -19,7 +19,7 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SECURITY_ADMIN_USER=admin
     volumes:
-      - ./grafana/lib:/var/lib/grafana
+      - ./grafana:/var/lib/grafana
     depends_on:
       - victoria_metrics
 
