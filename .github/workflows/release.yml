@@ -39,7 +39,7 @@ jobs:
 
       - name: build
         env:
-          VERSION: steps.version.outputs.tag
+          VERSION: ${{ steps.version.outputs.version }}
         run: make build
 
       - name: force update major tag
@@ -49,5 +49,5 @@ jobs:
 
       - name: release
         env:
-          VERSION: steps.version.outputs.tag
+          VERSION: ${{ steps.version.outputs.version }}
         run: ./release-github-binaries.sh

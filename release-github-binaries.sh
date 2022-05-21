@@ -29,6 +29,7 @@ for build in $(ls .build); do
 done
 
 cd dist
+ls -la
 sha256sum *.gz *.zip > sha256sums.txt
 ls -la
 cd ..
