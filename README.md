@@ -2,7 +2,8 @@
 
 A prometheus exporter for Facepunch Rust servers
 
-![image](https://user-images.githubusercontent.com/1617698/169643677-46ad9eb1-34aa-4577-a94b-e265fb1a0644.png)
+
+![good](https://user-images.githubusercontent.com/1617698/169644095-868b5548-2702-4dbb-a40d-fbfcc937d327.png)
 
 
 ## Supported Metrics
