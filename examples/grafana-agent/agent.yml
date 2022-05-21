@@ -1,0 +1,24 @@
+metrics:
+  wal_directory: 'C:\wal_tmp'
+  global:
+    remote_write:
+      - url: 'http://localhost:8428/api/v1/write'
+  configs:
+    - name: default
+      scrape_configs:
+        - job_name: rust
+          metrics_path: /scrape
+          relabel_configs:
+            - source_labels:
+                - __address__
+              target_label: __param_target
+            - source_labels:
+                - __param_target
+              target_label: instance
+            - target_label: __address__
+              replacement: '<EXPORTER_HOST>:<EXPORTER_PORT>'
+          static_configs:
+            - targets:
+                - '<RUST_SERVER_HOST>:<RUST_RCON_PORT>'
+              labels:
+                process: RustDedicated
