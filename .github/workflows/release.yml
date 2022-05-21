@@ -54,19 +54,17 @@ jobs:
       
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
-        working-directory: dist
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: facepunch_rust_exporter-${{ steps.version.outputs.version }}*
+          file: dist/facepunch_rust_exporter-${{ steps.version.outputs.version }}*
           tag: ${{ steps.version.outputs.tag }}
           overwrite: true
           file_glob: true
 
       - name: Upload sha256sums.txt to release
         uses: svenstaro/upload-release-action@v2
-        working-directory: dist
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: sha256sums.txt
+          file: dist/sha256sums.txt
           tag: ${{ steps.version.outputs.tag }}
           overwrite: true
