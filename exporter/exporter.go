@@ -158,6 +158,17 @@ func (e *Exporter) scrapeRustServer(ch chan<- prometheus.Metric) (err error) {
 	return nil
 }
 
+/* Rust commands that return pure json
+
+- playerlist
+- serverinfo
+- bans
+- buildinfo
+- mutelist
+-
+
+*/
+
 /* Player Count Metrics (TODO: we might be able to get all of this with global.stats) */
 
 func (e *Exporter) extractPlayerCount(ch chan<- prometheus.Metric) {
