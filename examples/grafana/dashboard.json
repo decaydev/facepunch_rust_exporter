@@ -59,7 +59,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653120150286,
+  "iteration": 1653154733258,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -709,7 +709,11 @@
     "list": [
       {
         "current": {},
-        "definition": "query_result(facepunch_rust_players <= 0)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "query_result(facepunch_rust_players >= 0)",
         "hide": 0,
         "includeAll": false,
         "label": "Server",
@@ -717,15 +721,14 @@
         "name": "server",
         "options": [],
         "query": {
-          "query": "query_result(facepunch_rust_players <= 0)",
+          "query": "query_result(facepunch_rust_players >= 0)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/.*instance=\\\"((\\d{1,3}\\.){1,3}\\d{1,3}:\\d{1,5})\\\".*/",
+        "regex": "/.*instance=\\\"(.*:\\d{1,5})\\\".*/",
         "skipUrlSync": false,
         "sort": 0,
-        "type": "query",
-        "datasource": "${DS_PROMETHEUS}"
+        "type": "query"
       }
     ]
   },
@@ -737,6 +740,6 @@
   "timezone": "",
   "title": "Rust Exporter Example",
   "uid": "sNDBvYXnk",
-  "version": 8,
+  "version": 3,
   "weekStart": ""
 }
