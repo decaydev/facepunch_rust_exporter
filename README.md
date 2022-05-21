@@ -48,7 +48,7 @@ scrape_configs:
 Once configured, build and run:
 
 ```sh
-go build
+go build .
 ./facepunch_rust_exporter -rcon.password <RCON_PASSWORD>
 ```
 
