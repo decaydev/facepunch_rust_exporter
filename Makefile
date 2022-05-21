@@ -1,8 +1,8 @@
 BUILD_DT:=$(shell date +%F-%T)
 GO_LDFLAGS:="-s -w -extldflags \"-static\" -X main.BuildVersion=${GITHUB_REF} -X main.BuildCommitSha=${GITHUB_SHA} -X main.BuildDate=$(BUILD_DT)" 
 
-.PHONE: build-binaries
-build-binaries:
+.PHONE: build
+build:
 	rm -rf .build | true
 
 	export CGO_ENABLED=0 ; \
