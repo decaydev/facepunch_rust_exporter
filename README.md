@@ -26,6 +26,13 @@ scrape_configs:
 
 `docker-compose.yml` has been provided to supply a victoriametrics and grafana instance. 
 
+## Supported Metrics
+
+| name         | description                                         |
+|--------------|-----------------------------------------------------|
+| player_count | number of players currently connected to the server |
+
+
 TODO:
 
 - insert example grafana dashboard json

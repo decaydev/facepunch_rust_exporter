@@ -158,6 +158,8 @@ func (e *Exporter) scrapeRustServer(ch chan<- prometheus.Metric) (err error) {
 	return nil
 }
 
+/* Player Count Metrics (TODO: we might be able to get all of this with global.stats) */
+
 func (e *Exporter) extractPlayerCount(ch chan<- prometheus.Metric) {
 	log.Debugf("extractPlayerCount()")
 	playerCountOutput, err := e.doRustCmd("players")
@@ -173,4 +175,12 @@ func (e *Exporter) extractPlayerCount(ch chan<- prometheus.Metric) {
 	}
 
 	e.registerConstMetricGauge(ch, "player_count", float64(playerCount))
+}
+
+func (e *Exporter) extractSleepingPlayerCount(ch chan<- prometheus.Metric) {
+	// global.sleepingusers
+}
+
+func (e *Exporter) extractQueuedPlayerCount(ch chan<- prometheus.Metric) {
+	// global.queue
 }
