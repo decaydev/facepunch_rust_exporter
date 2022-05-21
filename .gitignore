@@ -19,3 +19,4 @@ grafana/
 !examples/grafana
 wal_tmp
 examples/grafana-agent/agent.mine.yml
+.vscode
