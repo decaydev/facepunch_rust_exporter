@@ -34,7 +34,4 @@ sha256sum *.gz *.zip > sha256sums.txt
 ls -la
 cd ..
 
-echo "Upload to Github"
-ghr  -parallel 1 -u nodelord -r facepunch_rust_exporter --replace "${VERSION}" dist/
-
 echo "Done"

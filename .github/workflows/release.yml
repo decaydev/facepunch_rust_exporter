@@ -50,4 +50,21 @@ jobs:
       - name: release
         env:
           VERSION: ${{ steps.version.outputs.version }}
-        run: ./release-github-binaries.sh
+        run: ./build-release-binaries.sh
+      
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: facepunch_rust_exporter-${{ steps.version.outputs.tag }}*
+          tag: v${{ steps.version.outputs.tag }}
+          overwrite: true
+          file_glob: true
+
+      - name: Upload sha256sums.txt to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: sha256sums.txt
+          tag: v${{ steps.version.outputs.tag }}
+          overwrite: true
