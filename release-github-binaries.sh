@@ -9,7 +9,7 @@ if [[ -z "${VERSION}" ]] ; then
 fi
 
 echo "go install ghr"
-go install github.com/tcnksm/ghr
+go install github.com/tcnksm/ghr@latest
 
 mkdir -p dist
 
