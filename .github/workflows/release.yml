@@ -56,8 +56,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: facepunch_rust_exporter-${{ steps.version.outputs.tag }}*
-          tag: v${{ steps.version.outputs.tag }}
+          file: facepunch_rust_exporter-${{ steps.version.outputs.version }}*
+          tag: ${{ steps.version.outputs.tag }}
           overwrite: true
           file_glob: true
 
@@ -66,5 +66,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: sha256sums.txt
-          tag: v${{ steps.version.outputs.tag }}
+          tag: ${{ steps.version.outputs.tag }}
           overwrite: true
