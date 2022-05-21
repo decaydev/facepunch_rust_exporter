@@ -19,7 +19,7 @@ jobs:
         go-version: 1.18
     
     - name: Set up Gox
-      run: go get github.com/mitchellh/gox
+      run: go install github.com/mitchellh/gox@latest
     
     - name: Build
       run: make build
